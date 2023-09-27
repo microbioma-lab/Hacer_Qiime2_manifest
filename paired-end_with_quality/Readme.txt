@@ -13,8 +13,6 @@
 #Paso 1. Crear un directorio llamado raw_seqs y poner ahí los archivos de las secuencias
 
  ── raw_seqs
-│   ├── MANIFEST.csv
-│   ├── MANIFEST_ejemplo.csv
 │   ├── Sa.F.D.28_10_L001_R1_001.fastq.gz
 │   ├── Sa.F.D.28_10_L001_R2_001.fastq.gz
 │   ├── Sa.F.D.30_8_L001_R1_001.fastq.gz
