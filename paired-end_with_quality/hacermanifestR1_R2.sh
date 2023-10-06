@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Directorio de trabajo
-directorio="raw_seqs"
+# Cambia al directorio "raw_seqs"
+cd raw_seqs
 
 # Nombre del archivo de salida (sin extensión)
 archivo_salida="MANIFEST"
@@ -13,7 +13,7 @@ extension=".gz"
 echo "sample-id,absolute-filepath,direction" > "$archivo_salida.csv"
 
 # Recorre los archivos .gz en el directorio
-for archivo in "$directorio"/*"$extension"; do
+for archivo in *"$extension"; do
     # Extraer el sample-id
     sample_id=$(basename "$archivo" | cut -d'_' -f1)
     
@@ -27,7 +27,7 @@ for archivo in "$directorio"/*"$extension"; do
     fi
     
     # Obtener la ruta absoluta del archivo
-    archivo_absoluto="$(cd "$(dirname "$archivo")" && pwd)/$(basename "$archivo")"
+    archivo_absoluto="$(pwd "$archivo")/$(basename "$archivo")"
 
     # Escribir la línea en el archivo CSV
     echo "$sample_id,$archivo_absoluto,$direction" >> "$archivo_salida.csv"
